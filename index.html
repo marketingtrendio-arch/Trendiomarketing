@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendioMarketing - Digital Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+  <!-- intl-tel-input -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css">
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            slate: {
+              850: '#151e2e',
+            }
+          },
+          animation: {
+            'blob': 'blob 10s infinite',
+            'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'fade-in': 'fadeIn 1s ease-out forwards',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(40px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://picsum.photos">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Light Mode: Clean, milky white glass with soft depth */
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.6);
+      --glass-blur: 20px;
+      --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+      --card-bg-light: #ffffff;
+      --input-bg-light: #ffffff;
+    }
+    .dark {
+      /* Dark Mode: Deep, cyber, rich glass */
+      --glass-bg: rgba(17, 25, 40, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+      --card-bg-light: rgba(255, 255, 255, 0.05); /* Fallback/Not used mostly due to glass overrides */
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      /* Light mode body: Subtle off-white for better contrast with white cards */
+      @apply bg-[#F8FAFC] text-slate-800 dark:bg-[#0B1120] dark:text-slate-50 transition-colors duration-500;
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      @apply bg-slate-50 dark:bg-slate-900;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply bg-slate-300 dark:bg-slate-700 border-2 border-slate-50 dark:border-slate-900;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      @apply bg-slate-400 dark:bg-slate-600;
+    }
+
+    /* Animation Utilities */
+    .animate-marquee {
+      animation: marquee 40s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    .glass-panel {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+    }
+
+    /* Solid Card for Light Mode to pop against the off-white bg */
+    .card-clean-light {
+      @apply bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-none;
+    }
+
+    .glass-btn {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .text-gradient {
+      background: linear-gradient(to right, #0284c7, #7c3aed, #db2777); /* Slightly darker for light mode readability */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .dark .text-gradient {
+      background: linear-gradient(to right, #0ea5e9, #8b5cf6, #ec4899);
+    }
+
+    .bg-gradient-primary {
+      background: linear-gradient(135deg, #0284c7 0%, #7c3aed 100%);
+    }
+    .dark .bg-gradient-primary {
+      background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+    }
+
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px) scale(1.01);
+      /* Light mode hover shadow */
+      box-shadow: 0 20px 40px -5px rgba(124, 58, 237, 0.15); 
+      border-color: rgba(124, 58, 237, 0.3);
+    }
+    .dark .card-hover:hover {
+      box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.4);
+      border-color: rgba(139, 92, 246, 0.5);
+    }
+
+    /* Staggered Animation Delays */
+    .delay-100 { animation-delay: 100ms; }
+    .delay-200 { animation-delay: 200ms; }
+    .delay-300 { animation-delay: 300ms; }
+    .delay-400 { animation-delay: 400ms; }
+    .delay-500 { animation-delay: 500ms; }
+
+    /* Initial state for animations */
+    .animate-slide-up, .animate-fade-in {
+      opacity: 0;
+    }
+
+    /* --- GLOBAL MICRO-INTERACTIONS --- */
+    
+    /* Smooth transition for all interactive elements */
+    a, button, input, select, textarea, .glass-panel {
+      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 250ms;
+    }
+
+    /* Focus States for better Accessibility and Aesthetics */
+    input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible {
+      outline: 2px solid #06b6d4; /* Cyan-500 */
+      outline-offset: 2px;
+    }
+
+    /* Input Fields Levitation Effect */
+    input:focus, textarea:focus, select:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.15); /* Cyan shadow */
+    }
+
+    /* Button Press Effect */
+    button:not(:disabled):active, a.btn:active {
+      transform: scale(0.98) translateY(0);
+    }
+
+    /* Link Hover Underline Animation */
+    a.hover-underline {
+      position: relative;
+    }
+    a.hover-underline::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #06b6d4;
+      transition: width 0.3s ease;
+    }
+    a.hover-underline:hover::after {
+      width: 100%;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://aistudiocdn.com/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://aistudiocdn.com/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://aistudiocdn.com/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://aistudiocdn.com/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://aistudiocdn.com/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://aistudiocdn.com/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@angular/compiler": "https://next.esm.sh/@angular/compiler@^21.0.2?external=rxjs",
+    "@angular/platform-browser": "https://next.esm.sh/@angular/platform-browser@^21.0.2?external=rxjs",
+    "@angular/core": "https://next.esm.sh/@angular/core@^21.0.2?external=rxjs",
+    "@angular/forms": "https://next.esm.sh/@angular/forms@^21.0.2?external=rxjs",
+    "@angular/router": "https://next.esm.sh/@angular/router@^21.0.2?external=rxjs",
+    "@angular/common": "https://next.esm.sh/@angular/common@^21.0.2?external=rxjs"
+  }
+}
+</script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
