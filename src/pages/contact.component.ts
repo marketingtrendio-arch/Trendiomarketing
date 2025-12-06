@@ -27,125 +27,103 @@ declare var intlTelInput: any;
 
     /* Dropdown Container - STRICT BLACK BACKGROUND */
     .iti__country-list {
+      background-color: #000000 !important;
+      border: 1px solid #333333 !important;
       border-radius: 12px !important;
-      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7) !important;
-      border: 1px solid rgba(255,255,255,0.15) !important;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.9) !important;
+      padding: 10px 0 !important;
+      width: 360px !important; /* Wider for better clarity */
+      max-height: 350px !important;
+      z-index: 10000 !important;
       font-family: 'Outfit', sans-serif !important;
-      padding: 8px 0 !important;
-      max-width: 380px !important;
-      width: 320px !important;
-      z-index: 9999 !important; /* Ensure it's on top */
-      margin-top: 6px !important;
+      margin-top: 8px !important;
       animation: dropdownSlideIn 0.2s ease-out forwards;
-      background-color: #000000 !important; /* Pure Black Background */
-      color: #ffffff !important;
     }
 
-    /* Row Layout */
+    /* Individual Row */
     .iti__country {
       display: flex !important;
       align-items: center !important;
-      padding: 12px 16px !important;
-      gap: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-      transition: background-color 0.15s ease;
-      position: relative;
-      background-color: transparent !important; /* Default transparent */
+      padding: 14px 20px !important; /* More breathing room */
+      border-bottom: 1px solid #222222 !important; /* Subtle separator */
+      transition: background-color 0.15s ease !important;
+      gap: 12px !important;
     }
     
     .iti__country:last-child {
       border-bottom: none !important;
     }
 
-    /* Hover/Focus State - Dark Gray for Readability */
+    /* Hover State */
     .iti__country:hover, 
     .iti__country.iti__highlight {
-      background-color: #1a1a1a !important; /* Dark Gray Highlight */
+      background-color: #1a1a1a !important;
     }
 
-    /* Flag Sizing & Alignment */
+    /* Flag */
     .iti__flag {
-      flex-shrink: 0;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.5);
-      border-radius: 2px;
-      width: 20px !important;
-      height: 15px !important;
-      object-fit: cover;
+      transform: scale(1.1) !important; 
+      border-radius: 2px !important;
+      box-shadow: 0 0 4px rgba(0,0,0,0.8) !important;
     }
 
-    /* Country Name - BRIGHT WHITE TEXT */
+    /* Country Name */
     .iti__country-name {
-      flex: 1 !important;
-      font-size: 15px !important;
+      font-size: 16px !important;
       font-weight: 500 !important;
-      color: #ffffff !important; /* Bright White */
+      color: #ffffff !important;
       white-space: nowrap !important;
       overflow: hidden !important;
       text-overflow: ellipsis !important;
-      text-align: left !important;
+      flex: 1 !important;
     }
 
-    /* Dial Code - LIGHT GRAY */
+    /* Dial Code */
     .iti__dial-code {
-      flex-shrink: 0;
-      margin-left: auto !important;
-      color: #9ca3af !important; /* Gray-400 */
       font-size: 14px !important;
-      font-weight: 500 !important;
+      color: #cccccc !important; /* Brighter gray for better readability */
+      font-weight: 400 !important;
+      opacity: 0.9 !important;
     }
 
-    /* Force text colors on hover/highlight to stay readable */
-    .iti__country:hover .iti__country-name,
-    .iti__country.iti__highlight .iti__country-name {
-      color: #ffffff !important;
-    }
-    .iti__country:hover .iti__dial-code,
-    .iti__country.iti__highlight .iti__dial-code {
-      color: #e5e7eb !important; /* Gray-200 */
-    }
-
-    /* Search Input Modernization - Dark Theme */
+    /* Search Input */
     .iti__search-input {
-      width: calc(100% - 24px) !important;
-      margin: 8px 12px 12px 12px !important;
-      padding: 12px 16px !important;
-      border: 1px solid #333333 !important;
+      background-color: #111111 !important;
+      border: 1px solid #444444 !important;
+      color: #ffffff !important;
       border-radius: 8px !important;
-      font-size: 14px !important;
-      font-family: inherit !important;
+      padding: 14px !important;
+      font-size: 15px !important;
+      margin: 10px 15px 15px 15px !important; /* Comfortable margin */
+      width: calc(100% - 30px) !important;
       outline: none !important;
-      transition: all 0.2s ease;
-      background-color: #111111 !important; /* Very Dark Gray */
-      color: #ffffff !important; /* White Text */
     }
 
     .iti__search-input:focus {
-      border-color: #0ea5e9 !important; /* Cyan-500 */
+      border-color: #ffffff !important; /* Clear focus indicator */
       background-color: #000000 !important;
-      box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2) !important;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.1) !important;
     }
     
     .iti__search-input::placeholder {
-      color: #6b7280 !important; /* Gray-500 */
+      color: #777777 !important;
     }
     
     /* Scrollbar styling */
     .iti__country-list::-webkit-scrollbar {
-      width: 8px;
+      width: 10px;
     }
     .iti__country-list::-webkit-scrollbar-track {
       background: #000000;
+      border-radius: 0 12px 12px 0;
     }
     .iti__country-list::-webkit-scrollbar-thumb {
       background-color: #333333;
-      border-radius: 4px;
+      border-radius: 5px;
       border: 2px solid #000000;
     }
-    
-    /* Ensure container width */
-    .iti {
-      width: 100%;
-      display: block;
+    .iti__country-list::-webkit-scrollbar-thumb:hover {
+      background-color: #555555;
     }
     
     /* Input field padding adjustment */

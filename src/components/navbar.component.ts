@@ -7,14 +7,15 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
   template: `
-    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-white/20 dark:border-white/5 transition-all duration-300">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/10 dark:border-white/5 bg-white/70 dark:bg-[#020617]/70 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-[#020617]/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           <!-- Logo -->
-          <div class="flex-shrink-0 cursor-pointer" routerLink="/">
-            <span class="text-2xl font-bold tracking-tight text-slate-800 dark:text-white flex items-center">
-              Trendio<span class="text-cyan-600 dark:text-cyan-400">Marketing</span>
-              <span class="ml-1 h-2 w-2 rounded-full bg-gradient-primary"></span>
+          <div class="flex-shrink-0 cursor-pointer group" routerLink="/">
+            <span class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center">
+              TrendioMarketing
+              <!-- Static Dot -->
+              <span class="w-2.5 h-2.5 bg-cyan-400 rounded-full ml-2"></span>
             </span>
           </div>
 
@@ -22,15 +23,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <div class="hidden md:flex items-center space-x-8">
               @for (item of navItems; track item.path) {
                 <a [routerLink]="item.path"
-                   routerLinkActive="text-cyan-600 dark:text-cyan-400 font-semibold"
+                   routerLinkActive="text-cyan-600 dark:text-cyan-400 active-underline"
                    [routerLinkActiveOptions]="{exact: item.path === '/'}"
-                   class="text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200 relative group">
+                   class="relative text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-200 py-2 group">
                   {{ item.label }}
-                  <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-600 dark:bg-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
+                  <!-- Animated Underline -->
+                  <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 transition-all duration-300 group-hover:w-full group-[.active-underline]:w-full"></span>
                 </a>
               }
               
-              <a routerLink="/contact" class="bg-gradient-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 shadow-md">
+              <a routerLink="/contact" class="bg-white text-slate-900 px-6 py-2 rounded-full text-sm font-bold shadow-sm hover:shadow-md transition-shadow transform hover:-translate-y-px">
                 Get Started
               </a>
           </div>
@@ -38,7 +40,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <!-- Mobile menu button -->
           <div class="md:hidden flex items-center gap-4">
             <button (click)="toggleMobileMenu()"
-                    class="bg-white/50 dark:bg-gray-800/50 inline-flex items-center justify-center p-2 rounded-md text-slate-700 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-gray-700 focus:outline-none backdrop-blur-md border border-slate-200 dark:border-white/5">
+                    class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors focus:outline-none">
               <span class="sr-only">Open main menu</span>
               @if (!isMobileMenuOpen()) {
                 <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,19 +58,19 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
       <!-- Mobile Menu Overlay -->
       @if (isMobileMenuOpen()) {
-        <div class="md:hidden glass-panel border-t border-slate-200 dark:border-white/10 absolute w-full h-screen bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
-          <div class="px-4 pt-4 pb-3 space-y-2">
+        <div class="md:hidden absolute w-full h-screen bg-white/95 dark:bg-[#020617]/95 backdrop-blur-xl border-t border-slate-200 dark:border-white/5 animate-fade-in">
+          <div class="px-6 pt-8 pb-3 space-y-4">
             @for (item of navItems; track item.path) {
               <a [routerLink]="item.path"
                  (click)="toggleMobileMenu()"
-                 routerLinkActive="text-cyan-600 dark:text-cyan-400 bg-slate-100 dark:bg-white/5 font-semibold"
+                 routerLinkActive="text-cyan-600 dark:text-cyan-400 pl-4 border-l-4 border-cyan-500"
                  [routerLinkActiveOptions]="{exact: item.path === '/'}"
-                 class="text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white block px-3 py-4 rounded-md text-lg font-medium border-b border-slate-100 dark:border-white/5">
+                 class="block text-2xl font-bold text-slate-800 dark:text-white py-2 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                 {{ item.label }}
               </a>
             }
-             <a routerLink="/contact" (click)="toggleMobileMenu()" class="text-center w-full block mt-8 bg-gradient-primary text-white px-4 py-4 rounded-xl text-lg font-bold shadow-lg shadow-cyan-500/20">
-                Get Started
+             <a routerLink="/contact" (click)="toggleMobileMenu()" class="block mt-8 w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white text-center py-4 rounded-xl text-lg font-bold shadow-lg shadow-cyan-500/20">
+                Start Project
               </a>
           </div>
         </div>
@@ -88,13 +90,11 @@ export class NavbarComponent implements OnInit {
   ];
 
   ngOnInit() {
-    // Check local storage or system preference
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme === 'light') {
       this.isDarkMode.set(false);
       document.documentElement.classList.remove('dark');
     } else {
-      // Default to dark
       this.isDarkMode.set(true);
       document.documentElement.classList.add('dark');
     }
