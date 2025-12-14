@@ -3,22 +3,14 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter, withHashLocation, Routes } from '@angular/router';
 import { AppComponent } from './src/app.component';
-import { HomeComponent } from './src/pages/home.component';
-import { AboutComponent } from './src/pages/about.component';
-import { ServicesComponent } from './src/pages/services.component';
-import { PortfolioComponent } from './src/pages/portfolio.component';
-import { ContactComponent } from './src/pages/contact.component';
-import { PrivacyComponent } from './src/pages/privacy.component';
-import { TermsComponent } from './src/pages/terms.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'services', component: ServicesComponent },
-  { path: 'portfolio', component: PortfolioComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'privacy', component: PrivacyComponent },
-  { path: 'terms', component: TermsComponent },
+  { path: '', loadComponent: () => import('./src/pages/home.component').then(m => m.HomeComponent) },
+  { path: 'about', loadComponent: () => import('./src/pages/about.component').then(m => m.AboutComponent) },
+  { path: 'services', loadComponent: () => import('./src/pages/services.component').then(m => m.ServicesComponent) },
+  { path: 'contact', loadComponent: () => import('./src/pages/contact.component').then(m => m.ContactComponent) },
+  { path: 'privacy', loadComponent: () => import('./src/pages/privacy.component').then(m => m.PrivacyComponent) },
+  { path: 'terms', loadComponent: () => import('./src/pages/terms.component').then(m => m.TermsComponent) },
   { path: '**', redirectTo: '' }
 ];
 

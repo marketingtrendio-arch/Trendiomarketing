@@ -19,8 +19,14 @@ import { RouterLink } from '@angular/router';
               Elevating brands through data-driven strategies and creative innovation. We make you trend.
             </p>
             <div class="flex space-x-4">
-              <a href="https://www.facebook.com/trendiomarketing" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-cyan-500 hover:text-white transition-all">
-                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <a href="https://www.facebook.com/trendiomarketing" target="_blank" rel="noopener noreferrer" aria-label="Follow TrendioMarketing on Facebook" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-cyan-500 hover:text-white transition-all">
+                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="https://pk.linkedin.com/in/muteeullahqarni" target="_blank" rel="noopener noreferrer" aria-label="Connect with Mutee Ullah Qarni on LinkedIn" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-cyan-500 hover:text-white transition-all">
+                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/trendiomarketingig/" target="_blank" rel="noopener noreferrer" aria-label="Follow TrendioMarketing on Instagram" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-cyan-500 hover:text-white transition-all">
+                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2c2.716 0 3.056.012 4.122.06 1.065.048 1.791.218 2.427.465a4.9 4.9 0 011.772 1.153 4.9 4.9 0 011.153 1.772c.247.636.417 1.363.465 2.427.048 1.066.06 1.406.06 4.122s-.012 3.056-.06 4.122c-.048 1.065-.218 1.791-.465 2.427a4.9 4.9 0 01-1.153 1.772 4.9 4.9 0 01-1.772 1.153c-.636.247-1.363.417-2.427.465-1.066.048-1.406.06-4.122.06s-3.056-.012-4.122-.06c-1.065-.048-1.791-.218-2.427-.465a4.9 4.9 0 01-1.772-1.153 4.9 4.9 0 01-1.153-1.772c-.247-.636-.417-1.363-.465-2.427-.048-1.066-.06-1.406-.06-4.122s.012-3.056.06-4.122c.048-1.065.218-1.791.465-2.427a4.9 4.9 0 011.153-1.772A4.9 4.9 0 015.45 2.525c.636-.247 1.363-.417 2.427-.465C8.944 2.013 9.284 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm6.406-11.845a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd" /></svg>
               </a>
             </div>
           </div>
@@ -41,7 +47,6 @@ import { RouterLink } from '@angular/router';
             <h3 class="text-white font-bold mb-6 tracking-wide text-sm uppercase">Company</h3>
             <ul class="space-y-3 text-sm text-slate-400">
               <li><a routerLink="/about" class="hover:text-cyan-400 transition-colors">About Us</a></li>
-              <li><a routerLink="/portfolio" class="hover:text-cyan-400 transition-colors">Portfolio</a></li>
               <li><a routerLink="/contact" class="hover:text-cyan-400 transition-colors">Contact</a></li>
               <li><a routerLink="/privacy" class="hover:text-cyan-400 transition-colors">Privacy Policy</a></li>
               <li><a routerLink="/terms" class="hover:text-cyan-400 transition-colors">Terms & Conditions</a></li>

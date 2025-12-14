@@ -4,17 +4,17 @@ import { Component } from '@angular/core';
   selector: 'app-about',
   standalone: true,
   template: `
-    <div class="pt-10 pb-20 transition-colors duration-300 min-h-screen">
+    <div class="bg-white dark:bg-slate-900 pt-10 pb-20 transition-colors duration-300 min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Story Section -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24 animate-slide-up">
           <div>
             <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-6">Who We Are</h1>
             <p class="text-slate-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
-              TrendioMarketing wasn't built to be just another agency. We were born out of a desire to break the mold. In a world of noise, we create signals.
+              TrendioMarketing was engineered to be different. In a world of digital noise, we build systems that generate powerful signals for growth.
             </p>
             <p class="text-slate-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
-              Founded in the digital cloud, we operate with a remote-first mindset, gathering the best talent from across the globe. Our team consists of data scientists, creative visionaries, and coding wizards working in unison to elevate your brand.
+              We are a globally-distributed collective of data scientists, creative strategists, and performance engineers, united by a single mission: to architect your brand's digital ascent.
             </p>
             <div class="flex gap-4">
               <div class="text-center p-4 glass-panel rounded-lg w-32 bg-white/50 dark:bg-white/5">
@@ -39,15 +39,15 @@ import { Component } from '@angular/core';
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="glass-panel p-8 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:scale-105 transition-transform duration-300">
               <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Innovation First</h3>
-              <p class="text-slate-600 dark:text-gray-400">We don't follow trends; we set them. We are constantly experimenting with new platforms and tech.</p>
+              <p class="text-slate-600 dark:text-gray-400">We don't follow trends; we engineer them. Our R&amp;D approach means we are perpetually at the bleeding edge of marketing technology and platform strategy.</p>
             </div>
             <div class="glass-panel p-8 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:scale-105 transition-transform duration-300 delay-100">
               <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Data Driven</h3>
-              <p class="text-slate-600 dark:text-gray-400">Creativity without data is just art. We use deep analytics to ensure every dollar creates ROI.</p>
+              <p class="text-slate-600 dark:text-gray-400">Creativity is our weapon, data is our guidance system. Every decision is backed by deep analytics to ensure maximum impact and measurable ROI.</p>
             </div>
             <div class="glass-panel p-8 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:scale-105 transition-transform duration-300 delay-200">
-              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Total Transparency</h3>
-              <p class="text-slate-600 dark:text-gray-400">No hidden fees, no jargon. Just clear reports and honest communication about your growth.</p>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Radical Transparency</h3>
+              <p class="text-slate-600 dark:text-gray-400">We provide a clear, real-time view into campaign performance. No jargon—just actionable insights and a shared path to victory.</p>
             </div>
           </div>
         </div>

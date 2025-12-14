@@ -1,4 +1,3 @@
-
 import { Component, signal, ElementRef, ViewChild, AfterViewInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -140,11 +139,11 @@ declare var intlTelInput: any;
     }
   `],
   template: `
-    <div class="pt-10 pb-20 bg-[#F8FAFC] dark:bg-slate-900 transition-colors duration-500 min-h-screen">
+    <div class="pt-10 pb-20 transition-colors duration-500 min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">Let's <span class="text-cyan-600 dark:text-cyan-400">Talk Business</span></h1>
-          <p class="text-xl text-slate-600 dark:text-gray-400">Ready to start? Fill out the form below or email us directly.</p>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">Let's <span class="text-cyan-600 dark:text-cyan-400">Build</span></h1>
+          <p class="text-xl text-slate-600 dark:text-gray-400">Ready to engineer your growth? Complete the form to schedule your strategy call.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -181,7 +180,7 @@ declare var intlTelInput: any;
 
              <div class="p-8 rounded-2xl bg-gradient-to-br from-cyan-600 to-purple-700 text-white shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:-translate-y-1 transition-all duration-300">
                <h3 class="text-xl font-bold mb-2">Pro Tip</h3>
-               <p class="text-cyan-50 opacity-90">Be as specific as possible about your goals. The more we know, the faster we can help you scale.</p>
+               <p class="text-cyan-50 opacity-90">Provide as much detail as possible. The more data we have, the more precise our growth strategy will be.</p>
              </div>
           </div>
 
@@ -273,6 +272,9 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
   private readonly TEMPLATE_ID = 'template_wd9olmu';
   private readonly PUBLIC_KEY = '8jr4NesX5T1aU6rSd';
 
+  // Centralized recipient email to ensure all notifications go to a single, correct address.
+  private readonly RECIPIENT_EMAIL = 'MarketingTrendio@gmail.com';
+
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
@@ -310,7 +312,7 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
         nationalMode: true,
         autoInsertDialCode: true,
         allowDropdown: true,         // Enables country dropdown
-        i18n: {
+        i1n: {
           searchPlaceholder: "Search country or code..."
         }
       });
@@ -360,15 +362,14 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
         whatsapp: this.contactForm.value.whatsapp, // Sent in E.164 format
         service: this.contactForm.value.service || 'Not Specified',
         message: this.contactForm.value.message,
-        to_email: 'MarketingTrendio@gmail.com' 
+        to_email: this.RECIPIENT_EMAIL // Using the single, defined recipient email.
       };
 
       try {
         await emailjs.send(
           this.SERVICE_ID,
           this.TEMPLATE_ID,
-          templateParams,
-          this.PUBLIC_KEY
+          templateParams
         );
         this.submitted.set(true);
       } catch (error) {

@@ -1,5 +1,4 @@
-
-import { Component, signal, OnInit } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -69,36 +68,25 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
                 {{ item.label }}
               </a>
             }
-             <a routerLink="/contact" (click)="toggleMobileMenu()" class="block mt-8 w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white text-center py-4 rounded-xl text-lg font-bold shadow-lg shadow-cyan-500/20">
+            <div class="flex items-stretch gap-4 pt-4">
+              <a routerLink="/contact" (click)="toggleMobileMenu()" class="flex-grow bg-gradient-to-r from-cyan-500 to-purple-600 text-white text-center py-4 rounded-xl text-lg font-bold shadow-lg shadow-cyan-500/20">
                 Start Project
               </a>
+            </div>
           </div>
         </div>
       }
     </nav>
   `
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   isMobileMenuOpen = signal(false);
-  isDarkMode = signal(true);
 
   navItems = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
-    { label: 'Services', path: '/services' },
-    { label: 'Portfolio', path: '/portfolio' }
+    { label: 'Services', path: '/services' }
   ];
-
-  ngOnInit() {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'light') {
-      this.isDarkMode.set(false);
-      document.documentElement.classList.remove('dark');
-    } else {
-      this.isDarkMode.set(true);
-      document.documentElement.classList.add('dark');
-    }
-  }
 
   toggleMobileMenu() {
     this.isMobileMenuOpen.update(v => !v);
