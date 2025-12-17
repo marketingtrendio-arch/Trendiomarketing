@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-about',
   standalone: true,
+  imports: [NgOptimizedImage],
   template: `
     <div class="bg-white dark:bg-slate-900 pt-10 pb-20 transition-colors duration-300 min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,7 +31,7 @@ import { Component } from '@angular/core';
           </div>
           <div class="relative animate-slide-up delay-200">
              <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-2xl transform rotate-3 blur opacity-30"></div>
-             <img src="https://picsum.photos/600/500?grayscale" alt="Team working" class="relative rounded-2xl shadow-2xl border border-white/10 w-full object-cover">
+             <img ngSrc="https://picsum.photos/600/500?grayscale" alt="Team working" class="relative rounded-2xl shadow-2xl border border-white/10 w-full object-cover" width="600" height="500">
           </div>
         </div>
 

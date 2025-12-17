@@ -187,7 +187,7 @@ declare var intlTelInput: any;
           <!-- Contact Form -->
           <div class="glass-panel card-clean-light p-8 rounded-2xl border border-slate-200 dark:border-white/5 hover:shadow-2xl transition-shadow duration-500">
             @if (submitted()) {
-              <div class="h-full flex flex-col items-center justify-center text-center py-12 animate-fadeIn">
+              <div class="h-full flex flex-col items-center justify-center text-center py-12 animate-fade-in">
                 <div class="w-20 h-20 bg-green-100 dark:bg-green-500/20 rounded-full flex items-center justify-center mb-6 animate-bounce-slow">
                   <svg class="w-10 h-10 text-green-600 dark:text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                 </div>

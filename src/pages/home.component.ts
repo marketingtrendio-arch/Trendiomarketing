@@ -10,10 +10,11 @@ import { NgOptimizedImage } from '@angular/common';
   template: `
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#020617] text-white pt-20 px-4">
-
-      <!-- Layer 1: Animated Background -->
+      
       <div class="absolute inset-0 z-0">
-        <img ngSrc="https://picsum.photos/seed/tech_blueprint_dark/1920/1080" priority fill alt="Abstract tech blueprint background" class="object-cover w-full h-full opacity-10 blur-sm scale-110">
+        <!-- Layer 1: Animated Background -->
+        <img ngSrc="https://picsum.photos/seed/tech_blueprint_dark/1920/1080" priority fill alt="Abstract tech blueprint background" class="object-cover opacity-10 blur-sm scale-110">
+        
         <!-- Grid overlay -->
         <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,208,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,208,255,0.1)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_30%,transparent_100%)]"></div>
         <!-- Glowing Blobs -->
