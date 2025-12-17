@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', loadComponent: () => import('./src/pages/home.component').then(m => m.HomeComponent) },
   { path: 'about', loadComponent: () => import('./src/pages/about.component').then(m => m.AboutComponent) },
   { path: 'services', loadComponent: () => import('./src/pages/services.component').then(m => m.ServicesComponent) },
+  { path: 'portfolio', loadComponent: () => import('./src/pages/portfolio.component').then(m => m.PortfolioComponent) },
   { path: 'contact', loadComponent: () => import('./src/pages/contact.component').then(m => m.ContactComponent) },
   { path: 'privacy', loadComponent: () => import('./src/pages/privacy.component').then(m => m.PrivacyComponent) },
   { path: 'terms', loadComponent: () => import('./src/pages/terms.component').then(m => m.TermsComponent) },

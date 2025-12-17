@@ -85,7 +85,8 @@ export class NavbarComponent {
   navItems = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
-    { label: 'Services', path: '/services' }
+    { label: 'Services', path: '/services' },
+    { label: 'Portfolio', path: '/portfolio' }
   ];
 
   toggleMobileMenu() {
